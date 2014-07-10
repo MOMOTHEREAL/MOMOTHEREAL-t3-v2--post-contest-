@@ -1,0 +1,3 @@
+name: MOMOTHEREAL-t3
+main: com.tenjava.entries.MOMOTHEREAL.t3.TenJava
+version: '${project.version}'
