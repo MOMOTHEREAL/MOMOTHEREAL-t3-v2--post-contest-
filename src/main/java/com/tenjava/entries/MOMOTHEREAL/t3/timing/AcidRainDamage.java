@@ -14,25 +14,29 @@ public class AcidRainDamage implements Runnable {
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.getWorld().isThundering()) {
-                if (isAtDayLight(player) && (!(player.getHealth() < 2d)) && player.getWorld().getDifficulty()== Difficulty.PEACEFUL) {
+                Bukkit.broadcastMessage("Thunder!");
+                if (isAtDayLight(player) && (!(player.getHealth() < 2d)) && player.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
                     player.damage(1d);
                 }
+            }else{
+                Bukkit.broadcastMessage("No thunder!");
             }
-
         }
+
     }
 
     public boolean isAtDayLight(Player player) {
-            int y = player.getLocation().getBlockY()+1;
+            int y = player.getLocation().getBlockY()+2;
             int x = player.getLocation().getBlockX();
             int z = player.getLocation().getBlockZ();
-
-            for (int iy = y+1; iy<=256; iy++) {
-                if ((player.getWorld().getBlockAt(x, iy, z) != null) || player.getWorld().getBlockAt(x, y, z).getType() != Material.AIR) {
-                    return false;
+            boolean light = true;
+            for (int iy = y; iy<=256; iy++) {
+                if ((player.getWorld().getBlockAt(x, iy, z) != null) && player.getWorld().getBlockAt(x, iy, z).getType() != Material.AIR) {
+                    light = false;
+                    break;
                 }
             }
 
-            return true;
+            return light;
         }
 }

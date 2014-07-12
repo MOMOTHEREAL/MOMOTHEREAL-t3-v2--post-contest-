@@ -23,6 +23,8 @@ public class TenJava extends JavaPlugin {
 
     public static boolean enabledFeatures;
 
+    public static boolean isAcidRaining;
+
 
     @Override
     public void onEnable() {
@@ -30,6 +32,8 @@ public class TenJava extends JavaPlugin {
         pluginVersion = this.getDescription().getVersion();
         this.logger = Bukkit.getLogger();
         logger.info(pluginName + " has been enabled.");
+        registerCommands();
+        registerListeners();
     }
 
     @Override

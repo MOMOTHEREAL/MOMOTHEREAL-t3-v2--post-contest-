@@ -2,6 +2,7 @@ package com.tenjava.entries.MOMOTHEREAL.t3.listeners;
 
 import com.tenjava.entries.MOMOTHEREAL.t3.TenJava;
 import com.tenjava.entries.MOMOTHEREAL.t3.timing.AcidRainDamage;
+import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -24,11 +25,16 @@ public class WeatherListener implements Listener {
 
     @EventHandler
     public void onStartRaining(WeatherChangeEvent event) {
-        Random random = new Random();
-        int b = random.nextInt(100);
-        if (b <= 20) {
-            plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new AcidRainDamage(), 20l*2, 20l*2);
+        if (event.toWeatherState()) {
+            Random random = new Random();
+            int b = random.nextInt(100);
+            Bukkit.broadcastMessage(b + "");
+            if (b <= 20) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    player.getWorld().setThundering(true);
+                }
+                Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new AcidRainDamage(), 20l*2, 20l*2);
+            }
         }
-
     }
 }
