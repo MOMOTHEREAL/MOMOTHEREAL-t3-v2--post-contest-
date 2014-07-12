@@ -24,12 +24,21 @@ public class WeatherListener implements Listener {
     }
 
     @EventHandler
+    public void onStopRaining(WeatherChangeEvent event) {
+        if (!event.toWeatherState()) {
+            TenJava.isAcidRaining = false;
+        }
+    }
+
+
+    @EventHandler
     public void onStartRaining(WeatherChangeEvent event) {
         if (event.toWeatherState()) {
             Random random = new Random();
             int b = random.nextInt(100);
             Bukkit.broadcastMessage(b + "");
             if (b <= 20) {
+                TenJava.isAcidRaining = true;
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     player.getWorld().setThundering(true);
                 }
