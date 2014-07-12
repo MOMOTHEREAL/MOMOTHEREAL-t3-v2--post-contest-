@@ -6,6 +6,7 @@ import com.tenjava.entries.MOMOTHEREAL.t3.listeners.WaterBottleConsumeListener;
 import com.tenjava.entries.MOMOTHEREAL.t3.listeners.WeatherListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -66,7 +67,7 @@ public class TenJava extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new WeatherListener(this), this);
         this.getServer().getPluginManager().registerEvents(new WaterBottleConsumeListener(), this);
         this.getServer().getPluginManager().registerEvents(new HailDisapearListener(this), this);
-    };
+    }
 
     /**
      * Checks if the player is currently in a snow biome.
@@ -81,6 +82,9 @@ public class TenJava extends JavaPlugin {
         return false;
     }
 
+    /**
+     * Checks if the player is currently in a desert biome.
+     */
     public static boolean isInDesert(Player player) {
         Location l = player.getLocation();
         Biome b = l.getBlock().getBiome();
@@ -89,6 +93,23 @@ public class TenJava extends JavaPlugin {
                 return true;
 
         return false;
+    }
+
+    /**
+     * Checks is a player is in direct contact with daylight.
+     */
+    public static boolean isAtDayLight(Player player) {
+        int y = player.getLocation().getBlockY() + 2;
+        int x = player.getLocation().getBlockX();
+        int z = player.getLocation().getBlockZ();
+        boolean light = true;
+        for (int iy = y; iy < player.getWorld().getMaxHeight(); iy++) {
+            if (player.getWorld().getBlockAt(x, iy, z).getType() != Material.AIR) {
+                light = false;
+                break;
+            }
+        }
+        return light;
     }
 
 

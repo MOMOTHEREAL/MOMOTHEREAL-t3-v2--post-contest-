@@ -47,6 +47,9 @@ public class WeatherListener implements Listener {
 
     }
 
+    /**
+     * Starts a heatstroke on all players in desert biomes.
+     */
     public void startHeatStroke() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (TenJava.isInDesert(player) && TenJava.isAcidicWeather) {
@@ -58,6 +61,9 @@ public class WeatherListener implements Listener {
         }
     }
 
+    /**
+     * Starts a hail effect on all snow biomes.
+     */
     public void startHailFalling() {
         for (World world : Bukkit.getWorlds()) {
             for (Chunk chunk : world.getLoadedChunks()) {
@@ -78,6 +84,9 @@ public class WeatherListener implements Listener {
         }
     }
 
+    /**
+     * Starts a blizzard effect on all snow biomes.
+     */
     public void startBlizzard() {
         for (World world : Bukkit.getWorlds()) {
             for (int i = 1; i <= 20; i++) {

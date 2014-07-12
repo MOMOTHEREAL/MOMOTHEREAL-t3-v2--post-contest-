@@ -20,7 +20,7 @@ public class BlackIce implements Runnable {
     public void run() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.getWorld().isThundering()) {
-                if (player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidicWeather && TenJava.enabledFeatures && TenJava.isInSnowBiome(player) && isAtDayLight(player)) {
+                if (player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidicWeather && TenJava.enabledFeatures && TenJava.isInSnowBiome(player) && TenJava.isAtDayLight(player)) {
                     for (Location l : randomLocationAroundPlayer(player)) {
                         l.getBlock().setType(Material.ICE);
                     }
@@ -75,21 +75,6 @@ public class BlackIce implements Runnable {
         return r;
     }
 
-    /**
-     * Checks is a player is in direct contact with daylight.
-     */
-    public boolean isAtDayLight(Player player) {
-        int y = player.getLocation().getBlockY() + 2;
-        int x = player.getLocation().getBlockX();
-        int z = player.getLocation().getBlockZ();
-        boolean light = true;
-        for (int iy = y; iy < player.getWorld().getMaxHeight(); iy++) {
-            if (player.getWorld().getBlockAt(x, iy, z).getType() != Material.AIR) {
-                light = false;
-                break;
-            }
-        }
-        return light;
-    }
+
 
 }
