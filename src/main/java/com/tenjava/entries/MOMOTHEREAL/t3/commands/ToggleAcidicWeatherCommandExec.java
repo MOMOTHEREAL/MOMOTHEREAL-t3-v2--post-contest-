@@ -2,6 +2,7 @@ package com.tenjava.entries.MOMOTHEREAL.t3.commands;
 
 import com.tenjava.entries.MOMOTHEREAL.t3.MessageUtil;
 import com.tenjava.entries.MOMOTHEREAL.t3.TenJava;
+import com.tenjava.entries.MOMOTHEREAL.t3.errors.NoPermissionError;
 import com.tenjava.entries.MOMOTHEREAL.t3.errors.NotHumanError;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -24,8 +25,6 @@ public class ToggleAcidicWeatherCommandExec implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command cmd, String commandLabel, String[] args) {
-        //TODO: Do stuff
-
         if (!(commandSender instanceof Player)) {
             new NotHumanError(commandSender);
             return false;
@@ -33,7 +32,19 @@ public class ToggleAcidicWeatherCommandExec implements CommandExecutor {
 
         Player player = (Player)commandSender;
 
+        if (!player.hasPermission("acidic.toggle")) {
+            new NoPermissionError(commandSender);
+            return false;
+        }
+
         TenJava.enabledFeatures = !TenJava.enabledFeatures;
+        if (TenJava.enabledFeatures) {
+            messages.sendMessage("§3Enabled all features of " + TenJava.pluginName, player, true);
+        }else{
+            messages.sendMessage("§3Disabled all features of " + TenJava.pluginName, player, true);
+        }
+
+
         return true;
     }
 }

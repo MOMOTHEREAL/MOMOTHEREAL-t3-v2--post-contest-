@@ -21,9 +21,9 @@ public class TenJava extends JavaPlugin {
      */
     public Logger logger;
 
-    public static boolean enabledFeatures;
+    public static boolean enabledFeatures = true;
 
-    public static boolean isAcidRaining;
+    public static boolean isAcidRaining = false;
 
 
     @Override

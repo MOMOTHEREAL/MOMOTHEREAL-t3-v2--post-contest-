@@ -16,13 +16,10 @@ public class AcidRainDamage implements Runnable {
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.getWorld().isThundering()) {
-                Bukkit.broadcastMessage("Thunder!");
-                if (isAtDayLight(player) && (!(player.getHealth() < 2d)) && player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidRaining) {
+                if (isAtDayLight(player) && (!(player.getHealth() < 2d)) && player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidRaining && TenJava.enabledFeatures) {
                     player.damage(1d);
                     player.playSound(player.getLocation(), Sound.FIZZ, 1f, 1f);
                 }
-            }else{
-                Bukkit.broadcastMessage("No thunder!");
             }
         }
 
