@@ -5,3 +5,16 @@ commands:
   toggleacidic:
     description: Toggles the features of the plugin, in case the world needs a break from heavy duty.
     aliases: [ta, tacidic, toggleacid]
+  hail:
+    description: Starts a hail storm.
+    aliases: [hailstorm]
+  heatstroke:
+    description: Starts a heatstroke.
+    aliases: [heat]
+  blizzard:
+    description: Starts a blizzard.
+  acidrain:
+    description: Starts an acid rain.
+    aliases: [acid]
+  blackice:
+    description: Starts a black ice storm.

@@ -95,6 +95,22 @@ public class WeatherListener implements Listener {
         }
     }
 
+    public void startAcidRain() {
+        TenJava.isAcidicWeather = true;
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.getWorld().setThundering(true);
+        }
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new AcidRainDamage(), 20l * 2, 20l * 2);
+    }
+
+    public void startBlackIce() {
+        TenJava.isAcidicWeather = true;
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.getWorld().setThundering(true);
+        }
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new BlackIce(), 20l * 2, 20l * 2);
+    }
+
     /**
      * Starts the possibility of acidic weather to start (when rain starts)
      */
@@ -105,13 +121,8 @@ public class WeatherListener implements Listener {
                 Random random = new Random();
                 int b = random.nextInt(100);
                 if (b <= 20) {
-                    TenJava.isAcidicWeather = true;
-                    for (Player player : Bukkit.getOnlinePlayers()) {
-                        player.getWorld().setThundering(true);
-                    }
-                    Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new BlackIce(), 20l * 2, 20l * 2);
-                    Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new AcidRainDamage(), 20l * 2, 20l * 2);
-
+                    startAcidRain();
+                    startBlackIce();
                 }
             }
             {//HAIL

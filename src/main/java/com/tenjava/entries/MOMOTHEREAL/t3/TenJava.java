@@ -1,6 +1,6 @@
 package com.tenjava.entries.MOMOTHEREAL.t3;
 
-import com.tenjava.entries.MOMOTHEREAL.t3.commands.ToggleAcidicWeatherCommandExec;
+import com.tenjava.entries.MOMOTHEREAL.t3.commands.*;
 import com.tenjava.entries.MOMOTHEREAL.t3.listeners.HailDisapearListener;
 import com.tenjava.entries.MOMOTHEREAL.t3.listeners.WaterBottleConsumeListener;
 import com.tenjava.entries.MOMOTHEREAL.t3.listeners.WeatherListener;
@@ -58,6 +58,11 @@ public class TenJava extends JavaPlugin {
      */
     public void registerCommands() {
         this.getCommand("toggleacidic").setExecutor(new ToggleAcidicWeatherCommandExec(this));
+        this.getCommand("hail").setExecutor(new HailCommand(this));
+        this.getCommand("blackice").setExecutor(new BlackiceCommand(this));
+        this.getCommand("acidrain").setExecutor(new AcidRainCommand(this));
+        this.getCommand("heatstroke").setExecutor(new HeatstrokeCommand(this));
+        this.getCommand("blizzard").setExecutor(new BlizzardCommand(this));
     }
 
     /**
