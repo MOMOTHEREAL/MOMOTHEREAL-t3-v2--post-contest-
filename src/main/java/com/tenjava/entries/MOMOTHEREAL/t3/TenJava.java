@@ -20,6 +20,8 @@ public class TenJava extends JavaPlugin {
      */
     public Logger logger;
 
+    public static boolean enabledFeatures;
+
 
     @Override
     public void onEnable() {
