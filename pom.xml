@@ -25,6 +25,12 @@
 			<version>1.7.9-R0.2-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.7.9-R0.2-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -38,10 +44,8 @@
 				<configuration>
 					<!-- Per the rules at http://git.io/lAJgzQ, you're free to change
 					     "1.6" to "1.7" or "1.8" if you wish. This will not impact your score. -->
-					<source>1.6</source>
-					<target>1.6</target>
-					<complianceLevel>1.6</complianceLevel>
-					<encoding>UTF-8</encoding>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>
