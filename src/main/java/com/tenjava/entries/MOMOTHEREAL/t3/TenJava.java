@@ -1,5 +1,51 @@
 package com.tenjava.entries.MOMOTHEREAL.t3;
 
+import com.tenjava.entries.MOMOTHEREAL.t3.commands.ToggleAcidicWeatherCommandExec;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class TenJava extends JavaPlugin {}
+import java.util.logging.Logger;
+
+public class TenJava extends JavaPlugin {
+    /**
+     * The name of the plugin (connected with the plugin description).
+     */
+    public static String pluginName;
+    /**
+     * The version of the plugin (connected with the plugin description).
+     */
+    public static String pluginVersion;
+    /**
+     * The server logger.
+     */
+    public Logger logger;
+
+
+    @Override
+    public void onEnable() {
+        pluginName = this.getDescription().getName();
+        pluginVersion = this.getDescription().getVersion();
+        this.logger = Bukkit.getLogger();
+        logger.info(pluginName + " has been enabled.");
+    }
+
+    @Override
+    public void onDisable() {
+        logger.info(pluginName + " has been disabled.");
+    }
+
+    /**
+     * Registers all the commands used by the plugin.
+     */
+    public void registerCommands() {
+        this.getCommand("toggleacidic").setExecutor(new ToggleAcidicWeatherCommandExec(this));
+    }
+
+    /**
+     * Registers all the events used by the plugin.
+     */
+    public void registerListeners(){};
+
+
+
+}
