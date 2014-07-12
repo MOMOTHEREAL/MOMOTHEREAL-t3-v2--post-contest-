@@ -77,6 +77,16 @@ public class TenJava extends JavaPlugin {
         return false;
     }
 
+    public static boolean isInDesert(Player player) {
+        Location l = player.getLocation();
+        Biome b = l.getBlock().getBiome();
+        if (b == Biome.DESERT || b == Biome.DESERT_HILLS || b == Biome.DESERT_MOUNTAINS
+                || b == Biome.SAVANNA || b == Biome.SAVANNA_MOUNTAINS || b == Biome.SAVANNA_PLATEAU || b == Biome.SAVANNA_PLATEAU_MOUNTAINS)
+                return true;
+
+        return false;
+    }
+
 
 
 

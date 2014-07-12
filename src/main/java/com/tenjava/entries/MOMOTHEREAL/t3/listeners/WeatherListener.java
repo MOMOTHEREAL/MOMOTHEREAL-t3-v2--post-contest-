@@ -32,6 +32,19 @@ public class WeatherListener implements Listener {
         if (!event.toWeatherState()) {
             TenJava.isAcidicWeather = false;
         }
+        Random random = new Random();
+        int b = random.nextInt(100);
+        if (b <= 10) {
+            startHeatStroke();
+        }
+    }
+
+    public void startHeatStroke() {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (TenJava.isInDesert(player) && TenJava.isAcidicWeather) {
+                player.setFireTicks(20*5);
+            }
+        }
     }
 
     /**
@@ -43,7 +56,6 @@ public class WeatherListener implements Listener {
             for (Player p : Bukkit.getOnlinePlayers()) {
                     Random random = new Random();
                     int b = random.nextInt(100);
-                    Bukkit.broadcastMessage(b + "");
                     if (b <= 20) {
                         TenJava.isAcidicWeather = true;
                         for (Player player : Bukkit.getOnlinePlayers()) {
