@@ -4,12 +4,12 @@ import com.tenjava.entries.MOMOTHEREAL.t3.TenJava;
 import com.tenjava.entries.MOMOTHEREAL.t3.timing.AcidRainDamage;
 import com.tenjava.entries.MOMOTHEREAL.t3.timing.BlackIce;
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Random;
 
@@ -42,7 +42,10 @@ public class WeatherListener implements Listener {
     public void startHeatStroke() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (TenJava.isInDesert(player) && TenJava.isAcidicWeather) {
-                player.setFireTicks(20*5);
+                player.setFireTicks(Integer.MAX_VALUE);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, Integer.MAX_VALUE, 1));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 0));
             }
         }
     }

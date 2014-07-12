@@ -47,7 +47,7 @@ Acidic Weather has a 20% chance of happening as soon as the weather changes to s
 - __Black Ice__: Spawns ice spikes around any player in a snowy biome every 2 seconds.
 
 There is also a 10% chance of a __heatstroke__ to start when the weather turns back to sunny in a desert.
-The heatstroke puts anyone in a desert on fire for 5 seconds.
+The heatstroke puts anyone in a desert on fire and gives them Slowness, Confusion and Blindness for UNTIL they drink a regular water bottle.
 
 The hardcore events occuring on weather downfall will not stop until the weather clears itself (or by using /toggledownfall, obviously).
 You can always stop these effects using /toggleacidic
