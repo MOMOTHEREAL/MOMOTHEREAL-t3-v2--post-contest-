@@ -31,7 +31,7 @@ Usage
 1. Install plugin
 2. Wait until the rain comes after you, and you will need a shelter!
 
-You can stop the effects of the plugin with the command: /toggleacidic (aliases: /ta, /toggleacid, tacidic, permission: acidic.toggle).
+You can stop the effects of the plugin with the command: /toggleacidic.
 
 ---------------------------------------
 
@@ -54,3 +54,14 @@ The heatstroke puts anyone in a desert on fire and gives them Slowness, Confusio
 The hardcore events occuring on weather downfall will not stop until the weather clears itself (or by using /toggledownfall, obviously).
 You can always stop these effects using /toggleacidic
 
+---------------------------------------
+
+Commands
+-----
+
+__/toggleacidic (aliases: /tacidic, /toggleacid, /ta, permission: acidic.toggle)__: Toggles the features of the plugin.
+__/acidrain (aliases: /acid, permission: acidic.acidrain)__: Starts an acid rain.
+__/hail (aliases: /hailstorm, permission: acidic.hail)__: Starts a hail fall.
+__/heatstroke (aliases: /heat, permission: acidic.heatstroke)__: Starts a heat stroke.
+__/blackice (aliases: none, permission: acidic.blackice)__: Starts a black ice storm.
+__/blizzard (aliases: none, permission: acidic.blizzard)__: Starts a blizzard storm.

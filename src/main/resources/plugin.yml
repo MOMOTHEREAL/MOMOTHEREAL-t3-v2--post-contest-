@@ -6,7 +6,7 @@ commands:
     description: Toggles the features of the plugin, in case the world needs a break from heavy duty.
     aliases: [ta, tacidic, toggleacid]
   hail:
-    description: Starts a hail storm.
+    description: Starts a hail fall.
     aliases: [hailstorm]
   heatstroke:
     description: Starts a heatstroke.
