@@ -1,6 +1,7 @@
 package com.tenjava.entries.MOMOTHEREAL.t3;
 
 import com.tenjava.entries.MOMOTHEREAL.t3.commands.ToggleAcidicWeatherCommandExec;
+import com.tenjava.entries.MOMOTHEREAL.t3.listeners.WeatherListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -46,7 +47,9 @@ public class TenJava extends JavaPlugin {
     /**
      * Registers all the events used by the plugin.
      */
-    public void registerListeners(){};
+    public void registerListeners(){
+        this.getServer().getPluginManager().registerEvents(new WeatherListener(this), this);
+    };
 
 
 
