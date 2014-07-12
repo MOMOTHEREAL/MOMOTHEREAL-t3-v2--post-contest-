@@ -24,14 +24,19 @@ public class WeatherListener implements Listener {
         this.plugin = plugin;
     }
 
+    /**
+     * Stops the acidic weather as soon as the raining stops.
+     */
     @EventHandler
     public void onStopRaining(WeatherChangeEvent event) {
         if (!event.toWeatherState()) {
-            TenJava.isAcidRaining = false;
+            TenJava.isAcidicWeather = false;
         }
     }
 
-
+    /**
+     * Starts the possibility of acidic weather to start (when rain starts)
+     */
     @EventHandler
     public void onStartRaining(WeatherChangeEvent event) {
         if (event.toWeatherState()) {
@@ -40,7 +45,7 @@ public class WeatherListener implements Listener {
                     int b = random.nextInt(100);
                     Bukkit.broadcastMessage(b + "");
                     if (b <= 20) {
-                        TenJava.isAcidRaining = true;
+                        TenJava.isAcidicWeather = true;
                         for (Player player : Bukkit.getOnlinePlayers()) {
                             player.getWorld().setThundering(true);
                         }

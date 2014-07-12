@@ -13,11 +13,14 @@ import java.util.Random;
  */
 public class BlackIce implements Runnable {
 
+    /**
+     * Spawns spikes of black ice of all players that are: in a world where the difficulty is higher than Peaceful, in a snow biome and in direct contact with daylight.
+     */
     @Override
     public void run() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.getWorld().isThundering()) {
-                if (player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidRaining && TenJava.enabledFeatures && TenJava.isInSnowBiome(player) && isAtDayLight(player)) {
+                if (player.getWorld().getDifficulty() != Difficulty.PEACEFUL && TenJava.isAcidicWeather && TenJava.enabledFeatures && TenJava.isInSnowBiome(player) && isAtDayLight(player)) {
                     for (Location l : randomLocationAroundPlayer(player)) {
                         l.getBlock().setType(Material.ICE);
                     }
@@ -27,6 +30,9 @@ public class BlackIce implements Runnable {
         }
     }
 
+    /**
+     * Gets a list of random places to spawn ice spikes.
+     */
     public List<Location> randomLocationAroundPlayer(Player player) {
         List<Location> r = new ArrayList<>();
 
@@ -69,6 +75,9 @@ public class BlackIce implements Runnable {
         return r;
     }
 
+    /**
+     * Checks is a player is in direct contact with daylight.
+     */
     public boolean isAtDayLight(Player player) {
         int y = player.getLocation().getBlockY() + 2;
         int x = player.getLocation().getBlockX();

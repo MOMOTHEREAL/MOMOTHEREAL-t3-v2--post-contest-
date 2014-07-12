@@ -24,9 +24,15 @@ public class TenJava extends JavaPlugin {
      */
     public Logger logger;
 
+    /**
+     * Are the features enabled on the server? (change using /toggleacid)
+     */
     public static boolean enabledFeatures = true;
 
-    public static boolean isAcidRaining = false;
+    /**
+     * Is the acidic weather (plugin random events) enabled?
+     */
+    public static boolean isAcidicWeather = false;
 
 
     @Override
@@ -58,7 +64,9 @@ public class TenJava extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new WeatherListener(this), this);
     };
 
-
+    /**
+     * Checks if the player is currently in a snow biome.
+     */
     public static boolean isInSnowBiome(Player player) {
         Location l = player.getLocation();
         Biome b = l.getBlock().getBiome();
