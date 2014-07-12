@@ -29,7 +29,23 @@ Usage
 -----
 
 1. Install plugin
-2. Do things with it
+2. Wait until the rain comes after you, and you will need a shelter!
 
-<!-- Hi, MOMOTHEREAL! This is the default README for every ten.java submission. -->
-<!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
+You can stop the effects of the plugin with the command: /toggleacidic (aliases: /ta, /toggleacid, tacidic, permission: acidic.toggle).
+
+---------------------------------------
+
+Description
+-----
+
+__AcidicWeather__ adds more hardcore elements to the normal weather in Minecraft.
+
+
+Acidic Weather has a 20% chance of happening as soon as the weather changes to snow/rain.
+
+- __Acid Rain__: Brings any player in contact with rain to half a heart in 40 seconds.
+- __Black Ice__: Spawns ice spikes around any player in a snowy biome every 2 seconds.
+
+The hardcore events will not stop until the weather clears itself (or by using /toggledownfall, obviously).
+You can always stop these effects using /toggleacidic
+
