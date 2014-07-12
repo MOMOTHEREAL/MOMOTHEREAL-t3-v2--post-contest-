@@ -3,15 +3,18 @@ package com.tenjava.entries.MOMOTHEREAL.t3.listeners;
 import com.tenjava.entries.MOMOTHEREAL.t3.TenJava;
 import com.tenjava.entries.MOMOTHEREAL.t3.timing.AcidRainDamage;
 import com.tenjava.entries.MOMOTHEREAL.t3.timing.BlackIce;
+import com.tenjava.entries.MOMOTHEREAL.t3.timing.Blizzard;
 import org.bukkit.*;
 import org.bukkit.block.Biome;
-import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 import java.util.Random;
 
@@ -75,6 +78,14 @@ public class WeatherListener implements Listener {
         }
     }
 
+    public void startBlizzard() {
+        for (World world : Bukkit.getWorlds()) {
+            for (int i = 1; i <= 20; i++) {
+                plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Blizzard(world), i * 20l);
+            }
+        }
+    }
+
     /**
      * Starts the possibility of acidic weather to start (when rain starts)
      */
@@ -94,10 +105,19 @@ public class WeatherListener implements Listener {
 
                 }
             }
-            Random random = new Random();
-            int i = random.nextInt(100);
-            if (i <= 20 && TenJava.enabledFeatures)
-                startHailFalling();
+            {//HAIL
+                Random random = new Random();
+                int i = random.nextInt(100);
+                if (i <= 20 && TenJava.enabledFeatures)
+                    startHailFalling();
+            }
+            {//BLIZZARD
+                Random random = new Random();
+                int i = random.nextInt(100);
+                if (i <= 20 && TenJava.enabledFeatures)
+                    startBlizzard();
+            }
+
         }
 
     }
