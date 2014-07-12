@@ -45,6 +45,7 @@ Acidic Weather has a 20% chance of happening as soon as the weather changes to s
 
 - __Acid Rain__: Brings any player in contact with rain to half a heart in 40 seconds.
 - __Black Ice__: Spawns ice spikes around any player in a snowy biome every 2 seconds.
+- __Hail__: There is a 20% chance of hail spawning in all generated snow biomes. In total, 5 hail blocks will spawn per chunk, and they will all despawn after a minute.
 
 There is also a 10% chance of a __heatstroke__ to start when the weather turns back to sunny in a desert.
 The heatstroke puts anyone in a desert on fire and gives them Slowness, Confusion and Blindness for UNTIL they drink a regular water bottle.
