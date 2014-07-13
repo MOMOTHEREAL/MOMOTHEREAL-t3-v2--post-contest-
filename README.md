@@ -1,9 +1,9 @@
-MOMOTHEREAL's ten.java submission
+MOMOTHEREAL's ten.java submission (post-contest)
 ==============================
 
 [![ten.java](https://cdn.mediacru.sh/hu4CJqRD7AiB.svg)](https://tenjava.com/)
 
-This is a submission for the 2014 ten.java contest.
+This is my post-contest (forked) repository my ten.java submission
 
 - __Theme:__ What random events can occur in Minecraft?
 - __Time:__ Time 3 (7/12/2014 14:00 to 7/13/2014 00:00 UTC)
